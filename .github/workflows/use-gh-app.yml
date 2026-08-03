@@ -17,5 +17,6 @@ jobs:
     - name: checkout other repo 
       uses: actions/checkout@v3
       with:
+        owner: Yasivan-org
         repository: Yasivan-org/gh-app-tokens
         #token: ${{ steps.get_workflow_token.outputs.token }} # token from previous step...
