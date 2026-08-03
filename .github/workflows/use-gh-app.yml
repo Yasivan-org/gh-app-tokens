@@ -10,10 +10,10 @@ jobs:
     steps:
     - name: get token
       id: get_workflow_token
-      uses:  actions/create-github-app-token@v3
+      uses: actions/create-github-app-token@v3
       with:
-        app-id: ${{ secrets.GH_APP_ID }}
-        private-key: ${{ secrets.GH_APP_KEY }}
+       client-id: ${{ secrets.GH_APP_ID }}
+       private-key: ${{ secrets.GH_APP_KEY }}
     - name: checkout other repo 
       uses: actions/checkout@v3
       with:
