@@ -1,0 +1,21 @@
+name: Use github App
+on: 
+  workflow_dispatch:
+  push:
+    paths:
+    - .github/workflows/use-gh-app.yml
+jobs:
+  checkout-other-repo:
+  runs-on: ubuntu-latest
+  steps:
+  - name: get token
+    id: get_workflow_token
+    uses:  actions/create-github-app-token@v3
+    with:
+      client-id: ${{ secrets.GH_APP_ID }}
+      private-key: ${{ secrets.GH_APP_KEY }}
+  - name: checkout other repo 
+    uses: actions/checkout@v3
+    with:
+      repository: my-org/my-private-tools
+      #token: ${{ steps.get_workflow_token.outputs.token }} # token from previous step...
