@@ -14,9 +14,9 @@ jobs:
       with:
        client-id: ${{ secrets.GH_APP_ID }}
        private-key: ${{ secrets.GH_APP_KEY }}
+       owner: Yasivan-org
     - name: checkout other repo 
       uses: actions/checkout@v3
       with:
-        owner: Yasivan-org
         repository: Yasivan-org/gh-containers
         token: ${{ steps.get_workflow_token.outputs.token }} # token from previous step...
